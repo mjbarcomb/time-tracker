@@ -64,6 +64,8 @@
   height: 100%;
   object-fit: cover;
 }
+
+/* TODO: Add toggle button 
 .userCard .toggleButton {
   position: absolute;
   font-family: var(--font-family-icons);
@@ -87,6 +89,7 @@
 .userCard .toggleButton:active {
   background: rgba(var(--ui-color-paper), 0.35);
 }
+*/
 
 @media only screen and (max-width: 767px) {
   .userCard {
