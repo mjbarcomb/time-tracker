@@ -1,0 +1,108 @@
+@import "../../index.css";
+
+.darkModeSwitch {
+  pointer-events: all;
+  width: 3.25rem;
+  height: 1.75rem;
+  display: flex;
+  border-radius: 1.25rem;
+  -webkit-border-radius: 1.25rem;
+  -moz-border-radius: 1.25rem;
+  -ms-border-radius: 1.25rem;
+  -o-border-radius: 1.25rem;
+  background: rgba(var(--color-gull-grey), 0.75);
+  position: relative;
+}
+.darkModeSwitch:focus-visible {
+  border: 2px auto rgba(var(--ui-color-focus), 1);
+}
+.darkModeSwitch .switch {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  margin: 0;
+  cursor: pointer;
+  transition: var(--transition-bg);
+  -webkit-transition: var(--transition-bg);
+  -moz-transition: var(--transition-bg);
+  -ms-transition: var(--transition-bg);
+  -o-transition: var(--transition-bg);
+}
+.darkModeSwitch::after {
+  content: "";
+  display: flex;
+  width: 1.4rem;
+  height: 1.4rem;
+  background: rgba(var(--color-alabaster), 1);
+  position: absolute;
+  border-radius: 50%;
+  left: 0.175rem;
+  top: 0.175rem;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  transition: transform 0.075s ease;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-transition: transform 0.075s ease;
+  -moz-transition: transform 0.075s ease;
+  -ms-transition: transform 0.075s ease;
+  -o-transition: transform 0.075s ease;
+  pointer-events: none;
+}
+.darkModeSwitch.on {
+  background: rgba(var(--ui-color-key), 1);
+}
+.darkModeSwitch::before {
+  font-family: var(--font-family-icons);
+  color: rgba(var(--color-gull-grey), 1);
+  font-variation-settings: "FILL" 1;
+  content: "light_mode";
+  position: absolute;
+  z-index: 1;
+  width: 1.4rem;
+  height: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0.175rem;
+  top: 0.175rem;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  transition: transform 0.075s ease, color 0.075s ease;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-transition: transform 0.075s ease, color 0.075s ease;
+  -moz-transition: transform 0.075s ease, color 0.075s ease;
+  -ms-transition: transform 0.075s ease, color 0.075s ease;
+  -o-transition: transform 0.075s ease, color 0.075s ease;
+  pointer-events: none;
+}
+.darkModeSwitch.on::before {
+  content: "dark_mode";
+  color: rgba(var(--ui-color-key), 1);
+  transform: translateX(100%) translateZ(0);
+  -webkit-transform: translateX(100%) translateZ(0);
+  -moz-transform: translateX(100%) translateZ(0);
+  -ms-transform: translateX(100%) translateZ(0);
+  -o-transform: translateX(100%) translateZ(0);
+}
+.darkModeSwitch.on::after {
+  transform: translateX(100%) translateZ(0);
+  -webkit-transform: translateX(100%) translateZ(0);
+  -moz-transform: translateX(100%) translateZ(0);
+  -ms-transform: translateX(100%) translateZ(0);
+  -o-transform: translateX(100%) translateZ(0);
+}
+
+.darkModeSwitch .switchLabel {
+  position: absolute;
+  left: -1000px;
+  opacity: 0;
+}

@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import UserCard from "./Components/UserCard/UserCard";
+import TimeCards from "./Components/TimeCards/TimeCards";
+import FilterCard from "./Components/FilterCard/FilterCard";
+import DarkModeSwitch from "./Components/DarkModeSwitch/DarkModeSwitch";
+import Style from "./Layout.module.css";
 
-function App() {
+const App = () => {
+  const [selectedFilterOption, setSelectedFilterOption] = useState("daily");
+  const [sidebarState, setSidebarState] = useState("closed");
+
+  const filterOptions = ["daily", "weekly", "monthly"];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <main>
+      <header className={Style.header}>
+        <DarkModeSwitch />
       </header>
-    </div>
+      <aside className={`${Style.sidebar} ${sidebarState}`}>
+        <UserCard
+          sidebarState={sidebarState}
+          setSidebarState={setSidebarState}
+        />
+        <FilterCard
+          filterOptions={filterOptions}
+          selectedFilterOption={selectedFilterOption}
+          setSelectedFilterOption={setSelectedFilterOption}
+        />
+      </aside>
+      <TimeCards selectedFilterOption={selectedFilterOption} />
+    </main>
   );
-}
+};
 
 export default App;

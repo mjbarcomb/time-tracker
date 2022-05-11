@@ -1,0 +1,134 @@
+@import "../../index.css";
+
+.userCard {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(var(--ui-color-key), 1);
+  width: 100%;
+  height: var(--user-card-height);
+  padding: var(--spacing);
+  box-sizing: border-box;
+  position: relative;
+  transition: var(--transition-bg);
+  -webkit-transition: var(--transition-bg);
+  -moz-transition: var(--transition-bg);
+  -ms-transition: var(--transition-bg);
+  -o-transition: var(--transition-bg);
+  border-radius: var(--border-radius);
+  -webkit-border-radius: var(--border-radius);
+  -moz-border-radius: var(--border-radius);
+  -ms-border-radius: var(--border-radius);
+  -o-border-radius: var(--border-radius);
+}
+.userCard .textContainer {
+  display: flex;
+  flex-direction: column;
+  color: rgba(var(--color-alabaster), 1);
+  transition: var(--transition-text);
+  -webkit-transition: var(--transition-text);
+  -moz-transition: var(--transition-text);
+  -ms-transition: var(--transition-text);
+  -o-transition: var(--transition-text);
+}
+.userCard .textContainer .reportLabel {
+  font-size: 1rem;
+  position: relative;
+  padding-bottom: 2em;
+}
+.userCard .textContainer .reportLabel::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 1em;
+  width: 100%;
+  height: 3px;
+  background: rgba(var(--color-alabaster), 0.25);
+}
+.userCard .textContainer .name {
+  margin: 0 0 var(--spacing) 0;
+  font-size: 2.5rem;
+  line-height: 3rem;
+}
+.userCard .imageContainer {
+  width: 5rem;
+  height: 5rem;
+  overflow: hidden;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.userCard .imageContainer .image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.userCard .toggleButton {
+  position: absolute;
+  font-family: var(--font-family-icons);
+  font-size: 1.5rem;
+  font-variation-settings: "FILL" 1, "wght" 700, "GRAD" 200, "opsz" 48;
+  background-color: rgba(var(--ui-color-paper), 0.25);
+  color: rgba(var(--color-alabaster), 1);
+  bottom: var(--spacing);
+  right: var(--spacing);
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: calc(var(--border-radius) * 0.25);
+  -webkit-border-radius: calc(var(--border-radius) * 0.25);
+  -moz-border-radius: calc(var(--border-radius) * 0.25);
+  -ms-border-radius: calc(var(--border-radius) * 0.25);
+  -o-border-radius: calc(var(--border-radius) * 0.25);
+  cursor: pointer;
+}
+.userCard .toggleButton:hover,
+.userCard .toggleButton:active {
+  background: rgba(var(--ui-color-paper), 0.35);
+}
+
+@media only screen and (max-width: 767px) {
+  .userCard {
+    flex-direction: row;
+    align-items: center;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+  }
+  .userCard .textContainer {
+    flex-direction: row;
+    align-items: baseline;
+    column-gap: 0.5rem;
+  }
+  .userCard .textContainer .name {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  .userCard .textContainer .reportLabel {
+    padding: 0;
+  }
+  .userCard .textContainer .reportLabel::after {
+    display: none;
+  }
+  .userCard .imageContainer {
+    margin-left: auto;
+    height: 3rem;
+    width: 3rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .userCard .textContainer {
+    flex-direction: column;
+  }
+  .userCard .textContainer .name {
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 1.25em;
+    max-width: 20rem;
+    text-overflow: ellipsis;
+  }
+}

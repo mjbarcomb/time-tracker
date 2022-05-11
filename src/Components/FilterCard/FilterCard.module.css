@@ -1,0 +1,118 @@
+@import "../../index.css";
+
+.filterCard {
+  width: 100%;
+  display: flex;
+  height: var(--filter-card-height);
+  justify-content: center;
+  background: rgba(var(--ui-color-paper), 1);
+  transition: var(--transition-bg);
+  -webkit-transition: var(--transition-bg);
+  -moz-transition: var(--transition-bg);
+  -ms-transition: var(--transition-bg);
+  -o-transition: var(--transition-bg);
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  padding: calc(var(--spacing) * 2) calc(var(--spacing) * 0.5)
+    calc(var(--spacing) * 0.5);
+  margin-top: calc(var(--spacing) * -1);
+  box-sizing: border-box;
+}
+.filterCard .segmentedControl {
+  display: flex;
+  background-color: var(--background);
+  padding: 0.35em;
+  column-gap: 0.35em;
+  border-radius: calc(var(--border-radius) * 0.5);
+  -webkit-border-radius: calc(var(--border-radius) * 0.5);
+  -moz-border-radius: calc(var(--border-radius) * 0.5);
+  -ms-border-radius: calc(var(--border-radius) * 0.5);
+  -o-border-radius: calc(var(--border-radius) * 0.5);
+}
+.filterCard .segmentedControl input {
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.filterCard .segmentedControl .segment {
+  color: rgba(var(--ui-color-key), 1);
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-bold);
+  padding: 0.25em 0.75em;
+  border-radius: calc(var(--border-radius) * 0.25);
+  backface-visibility: hidden;
+  -webkit-border-radius: calc(var(--border-radius) * 0.25);
+  -moz-border-radius: calc(var(--border-radius) * 0.25);
+  -ms-border-radius: calc(var(--border-radius) * 0.25);
+  -o-border-radius: calc(var(--border-radius) * 0.25);
+  transition: background-color 0.05s ease, color 0.1s ease;
+  -webkit-transition: background-color 0.05s ease, color 0.1s ease;
+  -moz-transition: background-color 0.05s ease, color 0.1s ease;
+  -ms-transition: background-color 0.05s ease, color 0.1s ease;
+  -o-transition: background-color 0.05s ease, color 0.1s ease;
+  -webkit-backface-visibility: hidden;
+}
+.filterCard .segmentedControl .segment:not(.selected):hover,
+.filterCard .segmentedControl .segment:not(.selected):active {
+  background: rgba(var(--color-royal-blue), 0.55);
+  color: rgba(var(--color-alabaster), 1);
+}
+:root[data-theme="dark"]
+  .filterCard
+  .segmentedControl
+  .segment:not(.selected):hover,
+:root[data-theme="dark"]
+  .filterCard
+  .segmentedControl
+  .segment:not(.selected):active {
+  color: rgba(var(--color-alabaster), 0.5);
+}
+.filterCard .segmentedControl .segmentLabel {
+  cursor: pointer;
+  position: relative;
+}
+.filterCard .segmentedControl .segment.selected:focus-visible {
+  --ui-color-focus: var(--ui-color-text);
+}
+.filterCard .segmentedControl .selected {
+  background: rgba(var(--ui-color-key), 1);
+  color: rgba(var(--color-alabaster), 1);
+}
+.filterCard .segmentedControl::after {
+  content: "";
+  display: flex;
+  width: var(--active-highlight-width);
+  height: 1rem;
+  background: rgba(var(--ui-color-key), 1);
+  position: absolute;
+  transform: translateX(var(--active-highlight-x));
+  -webkit-transform: translateX(var(--active-highlight-x));
+  -moz-transform: translateX(var(--active-highlight-x));
+  -ms-transform: translateX(var(--active-highlight-x));
+  -o-transform: translateX(var(--active-highlight-x));
+}
+@media only screen and (max-width: 767px) {
+  .filterCard {
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .filterCard {
+    justify-content: flex-end;
+    padding: 0 var(--spacing);
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .filterCard {
+    justify-content: center;
+  }
+}

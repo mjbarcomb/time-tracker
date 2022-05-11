@@ -1,0 +1,77 @@
+@import "./index.css";
+
+.sidebar {
+  position: fixed;
+  width: var(--sidebar-width);
+  left: var(--spacing);
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--spacing);
+  box-sizing: border-box;
+  width: 100vw;
+  max-width: 100%;
+  z-index: 1;
+  background: rgba(var(--ui-color-paper), 1);
+}
+main {
+  display: flex;
+  gap: var(--spacing);
+  height: 100vh;
+  max-height: 100%;
+  align-items: center;
+  padding-top: var(--header-height);
+  padding-left: calc(var(--sidebar-width) + var(--spacing));
+}
+
+@media only screen and (max-width: 767px) {
+  header {
+    background: transparent;
+    pointer-events: none;
+    top: calc(var(--user-card-height));
+    z-index: 2;
+    border-top: 1px solid var(--background);
+    border-bottom: 1px solid var(--background);
+  }
+  .sidebar {
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    z-index: 1;
+    border-bottom: 4px solid var(--background);
+    transition: border-bottom 0.1s ease;
+    -webkit-transition: border-bottom 0.1s ease;
+    -moz-transition: border-bottom 0.1s ease;
+    -ms-transition: border-bottom 0.1s ease;
+    -o-transition: border-bottom 0.1s ease;
+  }
+  main {
+    padding-left: 0;
+    padding-top: calc(
+      var(--user-card-height) + var(--filter-card-height) + var(--spacing)
+    );
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  header {
+    background-color: rgba(var(--ui-color-paper), 1);
+    height: 3rem;
+    top: calc(var(--user-card-height) + var(--filter-card-height));
+  }
+  main {
+    padding-top: calc(
+      var(--user-card-height) + var(--filter-card-height) + 3rem
+    );
+  }
+}

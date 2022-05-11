@@ -1,0 +1,151 @@
+@import "../../index.css";
+
+.timeCards {
+  color: rgba(var(--ui-color-text), 1);
+  transition: var(--transition-text);
+  --image-container-height: 4.5em;
+  list-style: none;
+  display: grid;
+  width: 100%;
+  align-items: flex-start;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--spacing);
+  -webkit-transition: var(--transition-text);
+  -moz-transition: var(--transition-text);
+  -ms-transition: var(--transition-text);
+  -o-transition: var(--transition-text);
+  padding: var(--spacing);
+  margin: 0 auto;
+  max-height: 100%;
+  max-width: 80rem;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.timeCards .timeCard {
+  display: flex;
+  flex-direction: column;
+  min-width: 15rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.timeCards .timeCard .title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-bold);
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.timeCards .timeCard .title::before,
+.timeCards .timeCard .title::after {
+  content: "";
+  position: absolute;
+  backface-visibility: hidden;
+  width: 100%;
+  height: 3px;
+  display: flex;
+  bottom: 0;
+  transform: translateZ(0);
+  background: rgba(var(--ui-color-key), var(--background-opacity));
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  -webkit-transition: opacity 0.2s ease, transform 0.2s ease;
+  -moz-transition: opacity 0.2s ease, transform 0.2s ease;
+  -ms-transition: opacity 0.2s ease, transform 0.2s ease;
+  -o-transition: opacity 0.2s ease, transform 0.2s ease;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+}
+:root[data-theme="dark"] .timeCards .timeCard .title::before,
+:root[data-theme="dark"] .timeCards .timeCard .title::after {
+  filter: brightness(0.9) saturate(1.5);
+  -webkit-filter: brightness(0.9) saturate(1.5);
+}
+.timeCards .timeCard .title::before {
+  --background-opacity: 1;
+}
+.timeCards .timeCard .title::after {
+  --background-opacity: 0.25;
+}
+.timeCards .timeCard .title::before {
+  opacity: 0;
+  transform: scaleX(0) translateZ(0);
+  --background-opacity: 1;
+  -webkit-transform: scaleX(0) translateZ(0);
+  -moz-transform: scaleX(0) translateZ(0);
+  -ms-transform: scaleX(0) translateZ(0);
+  -o-transform: scaleX(0) translateZ(0);
+}
+.timeCards .timeCard:hover .title::before {
+  opacity: 1;
+  transform: scaleX(1) translateZ(0);
+  -webkit-transform: scaleX(1) translateZ(0);
+  -moz-transform: scaleX(1) translateZ(0);
+  -ms-transform: scaleX(1) translateZ(0);
+  -o-transform: scaleX(1) translateZ(0);
+}
+
+.timeCards .timeCard .value {
+  margin: 0;
+  font-size: 3rem;
+  margin-top: 1rem;
+}
+
+.timeCards .timeCard .previousValue {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(var(--ui-color-text), 1);
+  transition: var(--transition-text);
+  opacity: 0.75;
+  -webkit-transition: var(--transition-text);
+  -moz-transition: var(--transition-text);
+  -ms-transition: var(--transition-text);
+  -o-transition: var(--transition-text);
+}
+
+.timeCards .timeCard .imageContainer {
+  background: rgba(var(--ui-color-key), 0.5);
+  height: var(--image-container-height);
+  width: 100%;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  transition: transform 0.2s ease;
+  -webkit-transition: transform 0.2s ease;
+  -moz-transition: transform 0.2s ease;
+  -ms-transition: transform 0.2s ease;
+  -o-transition: transform 0.2s ease;
+}
+.timeCards .timeCard:hover .imageContainer {
+  transform: translateY(-0.25rem);
+  -webkit-transform: translateY(-0.25rem);
+  -moz-transform: translateY(-0.25rem);
+  -ms-transform: translateY(-0.25rem);
+  -o-transform: translateY(-0.25rem);
+}
+
+:root[data-theme="dark"] .timeCards .timeCard .imageContainer {
+  filter: brightness(0.9) saturate(1.5);
+  -webkit-filter: brightness(0.9) saturate(1.5);
+}
+
+.timeCards .timeCard .textContainer {
+  border-radius: var(--border-radius);
+  background-color: rgba(var(--ui-color-paper), 1);
+  transition: var(--transition-bg);
+  position: relative;
+  padding: var(--spacing);
+  margin-top: -1rem;
+}
+
+.timeCards .timeCard .imageContainer .image {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: var(--image-height, auto);
+}
